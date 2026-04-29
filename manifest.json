@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffbc5e",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "music mayhem",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "music mayhem",
+  "start_url": "/",
+  "theme_color": "#ffe772",
+  "description": "the music be mayhem"
+}
