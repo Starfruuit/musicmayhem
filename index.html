@@ -492,6 +492,63 @@
     if (navigator && navigator.serviceWorker) {
         navigator.serviceWorker.register('sw.js');
     }
+
+    // PWA Install Prompt
+    let deferredPrompt;
+    const installButton = document.createElement('button');
+    installButton.id = 'install-btn';
+    installButton.textContent = 'Install Music Mayhem';
+    installButton.style.cssText = `
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background: #ffbc5e;
+        color: #000;
+        border: 2px solid #ffe772;
+        padding: 10px 15px;
+        font-family: 'Press Start 2P', monospace;
+        font-size: 12px;
+        cursor: pointer;
+        z-index: 1000;
+        display: none;
+        box-shadow: 0 0 10px rgba(255, 188, 94, 0.5);
+    `;
+
+    // Add install button to body
+    document.body.appendChild(installButton);
+
+    // Listen for the beforeinstallprompt event
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent the mini-infobar from appearing on mobile
+        e.preventDefault();
+        // Stash the event so it can be triggered later
+        deferredPrompt = e;
+        // Show the install button
+        installButton.style.display = 'block';
+    });
+
+    // Handle the install button click
+    installButton.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+
+        // Show the install prompt
+        deferredPrompt.prompt();
+
+        // Wait for the user to respond to the prompt
+        const { outcome } = await deferredPrompt.userChoice;
+
+        // Hide the install button
+        installButton.style.display = 'none';
+
+        // Clear the deferred prompt
+        deferredPrompt = null;
+    });
+
+    // Hide the install button if the app is already installed
+    window.addEventListener('appinstalled', () => {
+        installButton.style.display = 'none';
+        deferredPrompt = null;
+    });
     </script>
 <div id="flex">
     <div id="game-container">
