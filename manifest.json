@@ -8,6 +8,6 @@
   "short_name": "music mayhem",
   "start_url": "/",
   "theme_color": "#ffe772",
-  "description": "the music be mayhem"
+  "description": "the music be mayhem",
   "icon": [{ "purpose": "maskable", "sizes": "83.33333333333334x83.33333333333334", "src": "images/maskable_icon.png", "type": "image/png"}]
 }
