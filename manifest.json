@@ -1,13 +1,9 @@
 {
-  "background_color": "#ffbc5e",
-  "dir": "ltr",
-  "display": "standalone",
   "name": "music mayhem",
-  "orientation": "any",
-  "scope": "/",
   "short_name": "music mayhem",
-  "start_url": "/",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "background_color": "#ffbc5e",
   "theme_color": "#ffe772",
-  "description": "the music be mayhem",
-  "icon": [{ "purpose": "maskable", "sizes": "83.33333333333334x83.33333333333334", "src": "images/maskable_icon.png", "type": "image/png"}]
+  "icon": [{ "purpose": "maskable", "sizes": "83x83", "src": "images/maskable_icon.png", "type": "image/png"}]
 }
